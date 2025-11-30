@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cyberbullying — What Is It and How Do I Stop It?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#6ee7b7;--muted:#94a3b8;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071026 0%, #0b1220 100%);color:#e6eef8}
+    .container{max-width:960px;margin:32px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;font-weight:700;color:#06283d}
+    h1{margin:0;font-size:1.5rem}
+    p.lead{margin:4px 0 0;color:var(--muted)}
+    nav{display:flex;gap:10px}
+    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.04);padding:8px 12px;border-radius:9px;color:inherit;text-decoration:none;cursor:pointer}
+    main{margin-top:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;margin-bottom:16px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    h2{margin:0 0 8px;font-size:1.125rem}
+    ul.tips{padding-left:18px;margin:8px 0}
+    footer{margin-top:18px;color:var(--muted);font-size:0.9rem}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    @media (max-width:720px){.grid{grid-template-columns:1fr}.brand h1{font-size:1.125rem}}
+    .kicker{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,0.04);font-size:0.75rem;color:var(--accent);margin-bottom:8px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .secondary{background:transparent;border:1px dashed rgba(255,255,255,0.04)}
+    .copyok{color:#10b981;font-weight:600;font-size:0.95rem}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">CB</div>
+        <div>
+          <h1>Cyberbullying — What Is It and How Do I Stop It?</h1>
+          <p class="lead">Mini e-book educativ — sfaturi practice pentru protecție online</p>
+        </div>
+      </div>
+      <nav class="actions">
+        <button class="btn" id="printBtn">Download / Print</button>
+        <button class="btn secondary" id="copyBtn">Copy text</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card">
+        <span class="kicker">Introduction</span>
+        <h2>What is cyberbullying?</h2>
+        <p>Cyberbullying is any form of bullying that happens through digital devices and online platforms. It includes hurtful messages, spreading rumors, sharing private photos without permission, impersonation, threats and creating fake accounts to humiliate someone. Because it happens online, attackers can stay anonymous and the content spreads fast.</p>
+      </section>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Effects of cyberbullying</h2>
+          <ul class="tips">
+            <li>Anxiety, persistent fear and stress</li>
+            <li>Lowered self-esteem and social withdrawal</li>
+            <li>Problems concentrating at school or work</li>
+            <li>Emotional issues such as sadness or depression</li>
+            <li>Long-term avoidance of online spaces</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>Why report the problem?</h2>
+          <p>Reporting can stop the abuse, help platforms remove harmful accounts, protect others, and enable adults or authorities to intervene when necessary. Ignoring the issue often makes it worse.</p>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2>Protect your personal information</h2>
+        <p>Tips to prevent personal data from being used to manipulate or humiliate you:</p>
+        <ul class="tips">
+          <li>Use privacy settings and make accounts private</li>
+          <li>Avoid posting sensitive details like address or phone number</li>
+          <li>Use strong passwords and two-factor authentication</li>
+          <li>Don't share intimate photos — they can be distributed</li>
+          <li>Be cautious with friend requests from people you don't know</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>How can I stop cyberbullying?</h2>
+        <ol class="tips">
+          <li>Don't respond aggressively — it often escalates the situation</li>
+          <li>Take screenshots as evidence</li>
+          <li>Block and report the bully on the platform</li>
+          <li>Talk to a trusted adult: parent, teacher or counselor</li>
+          <li>If threats are serious, contact the authorities</li>
+        </ol>
+        <p>If you see someone else being bullied, be an <strong>upstander</strong>: report, offer support and encourage the person to seek help.</p>
+      </section>
+
+      <section class="card">
+        <h2>Resources & next steps</h2>
+        <p>Want this as a printable e-book? Click <strong>Download / Print</strong> to save a PDF. You can also copy the full text to paste into a Word document.</p>
+        <div id="copyStatus"></div>
+      </section>
+
+    </main>
+
+    <footer>
+      Created for educational use • Share responsibly • If you're in immediate danger, contact local emergency services.
+    </footer>
+  </div>
+
+  <script>
+    const printBtn = document.getElementById('printBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const copyStatus = document.getElementById('copyStatus');
+
+    printBtn.addEventListener('click', () => {
+      window.print();
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      const text = Array.from(document.querySelectorAll('main')).map(n => n.innerText).join('\n\n');
+      try{
+        await navigator.clipboard.writeText(text);
+        copyStatus.innerHTML = '<p class="copyok">Text copied to clipboard — paste into Word or Google Docs.</p>';
+      }catch(e){
+        copyStatus.innerHTML = '<p class="copyok">Could not access clipboard — select the text manually and copy.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
